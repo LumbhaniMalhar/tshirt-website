@@ -14,11 +14,12 @@ exports.signup = (req, res)=>{
     }
 
     User.findOne({email}, (err, member) => {
-        if(!err || member){
-            return res.status(400).json({
-                error: "email already used"
-            })
-        }
+        // console.log("err", err, member)
+        // if(!err || member){
+        //     return res.status(400).json({
+        //         error: "email already used"
+        //     })
+        // }
         const user = new User(req.body);
         user.save((err, user)=>{
             if(err) {
